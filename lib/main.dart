@@ -1,14 +1,18 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_arrangement/core/util/services/api_services.dart';
+import 'package:my_arrangement/core/util/services/local_services.dart';
+import 'package:my_arrangement/features/products/data/repo/impl.dart';
+import 'package:my_arrangement/injection.dart';
 
-import 'core/util/injection/injection.dart';
 import 'features/products/bloc/products_bloc.dart';
 import 'features/products/data/models/produc.dart';
 
 ///
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await slSetup();
+  await configureDependencies();
   runApp(const MyApp());
 }
 
@@ -18,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<ProductsBloc>(
-      create: (context) => sl<ProductsBloc>()..add(GetProducsts()),
+      create: (context) => getIt<ProductsBloc>()..add(GetProducsts()),
       child: const MaterialApp(
         home: MyHome(),
       ),

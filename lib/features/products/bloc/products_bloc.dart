@@ -2,6 +2,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
+import 'package:injectable/injectable.dart';
 
 import 'package:my_arrangement/features/products/data/repo/base.dart';
 
@@ -10,6 +11,7 @@ import '../data/models/produc.dart';
 part 'products_event.dart';
 part 'products_state.dart';
 
+@injectable
 class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
   ProductsRepo productsRepo;
 

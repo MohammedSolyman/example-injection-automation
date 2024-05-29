@@ -1,9 +1,11 @@
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 import 'package:my_arrangement/core/util/services/api_services.dart';
 import 'package:my_arrangement/core/util/services/local_services.dart';
 import 'package:my_arrangement/features/products/data/models/produc.dart';
 import 'package:my_arrangement/features/products/data/repo/base.dart';
 
+@Injectable(as: ProductsRepo)
 class ProductsRepoImpl implements ProductsRepo {
   ApiServices apiServices;
   LocalServices localServices;
